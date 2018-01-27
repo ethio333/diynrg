@@ -15,7 +15,7 @@
 
 package gui;
 
-// test
+// test1
 
 public class DIYnrgGUI {	
 	
