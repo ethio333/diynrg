@@ -1,6 +1,6 @@
 
 /*
- * DIYnrgMain.java
+ * diynrgMain.java
  *
  * Developers: 
  * Denis Yakovlev, 
