@@ -15,8 +15,7 @@
 
 package gui;
 
-public class DIYnrgGUI {
-	
+public class DIYnrgGUI {	
 	
 	public void start() {
 		
