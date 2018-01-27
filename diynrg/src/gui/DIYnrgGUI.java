@@ -1,4 +1,8 @@
 
+
+// Checking synchronization (Fetch or Pull) with Eclipse
+
+
 /*
  * diynrgMain.java
  *
