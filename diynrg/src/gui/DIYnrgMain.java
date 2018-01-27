@@ -1,6 +1,6 @@
 
 /*
- * diynrgMain.java
+ * DIYnrgMain.java
  *
  * Developers: 
  * Denis Yakovlev, 
@@ -9,7 +9,8 @@
  * Fasil Ayenew, 
  * Kevin Nguyen
  * 
- * DIY project for energy saving. 
+ * DIY project for energy saving.
+ * Main class. 
  */
 
 /*
