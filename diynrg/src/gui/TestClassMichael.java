@@ -12,6 +12,7 @@ public class TestClassMichael {
 		for (i = 0; i < 4; i++) {
 			System.out.print(kevin[i] + " ");
 		}
+		System.out.print("hello");
 
 	}
 
