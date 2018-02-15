@@ -18,7 +18,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 
 public class FrontPage {
-//udhfigdoidgfgihdl
+
 	private JFrame startframe;
 	private JFrame bulboptions;
 	private JFrame ledprice;
@@ -178,7 +178,8 @@ public class FrontPage {
 		
 		//third page(LED options)
 		ledprice = new JFrame();
-		ifhdshf  = new JFrame();//dhfkidglidflg
+		ifhdshf  = new JFrame();
+		ifhdshf2  = new JFrame();//finl test
 		ledprice.setVisible(false);
 		ledprice.setBounds(100, 100, 400, 543);
 		ledprice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
