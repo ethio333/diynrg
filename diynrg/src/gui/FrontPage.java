@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+package gui;
+
+
+>>>>>>> upstream/master
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -12,7 +18,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 
 public class FrontPage {
-
+//udhfigdoidgfgihdl
 	private JFrame startframe;
 	private JFrame bulboptions;
 	private JFrame ledprice;
@@ -172,6 +178,7 @@ public class FrontPage {
 		
 		//third page(LED options)
 		ledprice = new JFrame();
+		ifhdshf  = new JFrame();//dhfkidglidflg
 		ledprice.setVisible(false);
 		ledprice.setBounds(100, 100, 400, 543);
 		ledprice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
