@@ -13,14 +13,7 @@ public interface AbstractItem {
 	 * 
 	 * @return the bulb type name.
 	 */
-	public String name();
-
-	/**
-	 * The total price for a chosen number of items (cost * quantity).
-	 * 
-	 * @return price one type items.
-	 */
-	public float getPriceForQuantity();
+	public String name();	
 	
 	/**
 	 * A chosen number of an item to replace.
@@ -49,5 +42,19 @@ public interface AbstractItem {
 	 * @return the total replacement area.
 	 */
 	public int getArea();
+	
+	/**
+	 * The total price for a chosen number of items.
+	 * 
+	 * @return cost * quantity.
+	 */
+	public float getPriceForQuantity();
+	
+	/**
+	 * The total Energy Consumption per hour for a chosen number of items.
+	 * 
+	 * @return energy consumption * quantity.
+	 */
+	public float getEnergyConsumptionForQuantity();
 	
 }
