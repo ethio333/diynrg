@@ -10,12 +10,12 @@ public abstract class Bulb implements AbstractItem {
 	/**
 	 * Default quantity.
 	 */
-	protected int myQuantity = 0;
+	private int myQuantity = 0;
 	
 	/**
 	 * Default area. 
 	 */
-	protected int myArea = 0;
+	private int myArea = 0;
 	
 	/**
 	 * An Bulb abstract class constructor.

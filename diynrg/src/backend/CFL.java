@@ -8,14 +8,19 @@ package backend;
 public class CFL extends Bulb {
 	
 	/**
-	 * Cost for CFL type bulb
+	 * Cost for CFL type bulb.
 	 */
 	private float myItemCost = 2;
 	
 	/**
+	 * Energy consumption by this types of bulbs watts / hour.
+	 */
+	private int myEnergyConsumption = 50;
+	
+	/**
 	 * The concrete class constructor for the CFL type bulbs.
 	 * 
-	 * @param theQuantity
+	 * @param theQuantity - total number chosen items.
 	 */
 	public CFL(int theQuantity) {
 		super(theQuantity, 0);
@@ -32,12 +37,43 @@ public class CFL extends Bulb {
 	}
 	
 	/**
-	 * The total price for a chosen number of items (cost * quantity).
+	 * Access to the cost of the CFL bulb.
 	 * 
-	 * @return price one type items.
+	 * @return cost of CFL bulb.
+	 */
+	public float getCFLcost() {
+		return myItemCost;
+	}
+	
+	/**
+	 * Access to the Energy Consumption of the CFL bulb.
+	 * 
+	 * @return Energy Consumption of the CFL bulb.
+	 */
+	public float getCFLenergyConsumption() {
+		return myEnergyConsumption;
+	}
+	
+	/**
+	 * The total price for a chosen number of 
+	 * the CFL type of items.
+	 * 
+	 * @return cost * quantity.
 	 */
 	@Override
 	public float getPriceForQuantity() {
-		return myItemCost * myQuantity;
+		return getCFLcost() * getQuantity();
 	}
+	
+	/**
+	 * The total Energy Consumption per hour for a chosen number of 
+	 * the CFL type of items.
+	 * 
+	 * @return energy consumption * quantity.
+	 */
+	@Override
+	public float getEnergyConsumptionForQuantity() {
+		return getCFLenergyConsumption() * getQuantity();
+	}
+	
 }

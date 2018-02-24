@@ -10,12 +10,17 @@ public class Halogen extends Bulb {
 	/**
 	 * Cost for Halogen type bulb
 	 */
-	private float myItemCost = 13;
+	private float myItemCost = 20;
+	
+	/**
+	 * Energy consumption by this types of bulbs watts / hour.
+	 */
+	private int myEnergyConsumption = 15;
 	
 	/**
 	 * The concrete class constructor for the Halogen type bulbs.
 	 * 
-	 * @param theQuantity
+	 * @param theQuantity - total number chosen items.
 	 */
 	public Halogen(int theQuantity) {
 		super(theQuantity, 0);
@@ -32,12 +37,42 @@ public class Halogen extends Bulb {
 	}
 	
 	/**
-	 * The total price for a chosen number of items (cost * quantity).
+	 * Access to the cost to the Halogen bulb.
 	 * 
-	 * @return price one type items.
+	 * @return cost of Halogen bulb.
+	 */
+	public float getHalogenCost() {
+		return myItemCost;
+	}
+	
+	/**
+	 * Access to the Energy Consumption of the Halogen bulb.
+	 * 
+	 * @return Energy Consumption of the Halogen bulb.
+	 */
+	public float getHalogenEnergyConsumption() {
+		return myEnergyConsumption;
+	}
+	
+	/**
+	 * The total price for a chosen number of 
+	 * the Halogen type of items.
+	 * 
+	 * @return cost * quantity.
 	 */
 	@Override
 	public float getPriceForQuantity() {
-		return myItemCost * myQuantity;
+		return getHalogenCost() * getQuantity();
+	}
+	
+	/**
+	 * The total Energy Consumption per hour for a chosen number of 
+	 * the Halogen type of items.
+	 * 
+	 * @return energy consumption * quantity.
+	 */
+	@Override
+	public float getEnergyConsumptionForQuantity() {
+		return getHalogenEnergyConsumption() * getQuantity();
 	}
 }
