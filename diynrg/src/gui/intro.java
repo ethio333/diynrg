@@ -34,9 +34,6 @@ public class intro {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public intro() {
 		initialize();
 	}
