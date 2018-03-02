@@ -28,7 +28,8 @@ public interface AbstractItem {
 	 * @param theArea - total replacement area.
 	 */
 	public void setArea(int theArea);
-	 * Show a chosen number of an item to replace.
+	 
+	/** Show a chosen number of an item to replace.
 	 * 
 	 * @return the total number chosen items.
 	 */

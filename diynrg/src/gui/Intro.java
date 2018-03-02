@@ -1,3 +1,6 @@
+
+package gui;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -11,7 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JMenuBar;
 import java.awt.BorderLayout;
 
-public class intro {
+public class Intro {
 	
 
 	JFrame frame;
@@ -25,7 +28,7 @@ public class intro {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					intro window = new intro();
+					Intro window = new Intro();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +37,7 @@ public class intro {
 		});
 	}
 
-	public intro() {
+	public Intro() {
 		initialize();
 	}
 
