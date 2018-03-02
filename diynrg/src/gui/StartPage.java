@@ -1,3 +1,7 @@
+
+package gui;
+
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -10,6 +14,8 @@ import javax.swing.JButton;
 import backend.LED;
 import backend.CFL;
 import backend.Halogen;
+
+
 public class StartPage {
 
 	JFrame frame;
