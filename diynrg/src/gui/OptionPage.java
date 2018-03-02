@@ -1,5 +1,8 @@
-
-package gui;
+/**
+ * Option class, user chooses option based on chosen home improvement
+ * 
+ * @author Fasil Ayenew
+ */
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -10,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
+import backend.About;
 import backend.CFL;
 import backend.GlassFiber;
 import backend.Glazed;
@@ -24,6 +28,7 @@ import javax.swing.JButton;
 public class OptionPage {
 
 	JFrame frame;
+	JFrame aboutFrame;
 	int userOption;
 	LED LedOption = new LED(0);
 	CFL CflOption = new CFL(0);
@@ -47,6 +52,9 @@ public class OptionPage {
 		userOption = op;
 		initialize();
 	}
+	//public OptionPage(){ //back method
+		//initialize();
+	//}
 	
 	/**
 	 * Initialize the contents of the frame.
@@ -159,6 +167,7 @@ public class OptionPage {
 		});
 		btnNext.setBounds(322, 452, 89, 23);
 		frame.getContentPane().add(btnNext);
+		
 		JButton btnBack2 = new JButton("Back");
 		btnBack2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -170,8 +179,33 @@ public class OptionPage {
 				
 			}
 		});
-		btnBack2.setBounds(10, 456, 89, 23);
+		btnBack2.setBounds(20, 452, 89, 23);
 		frame.getContentPane().add(btnBack2);
+		
+		
+		JButton btnHome = new JButton("Home");
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				intro back =  new intro();
+				frame.setVisible(false);
+				back.frame.setVisible(true);
+				
+			}
+		});
+		btnHome.setBounds(166, 452, 89, 23);
+		frame.getContentPane().add(btnHome);
+		
+		JButton btnAbout = new JButton("?"); //about
+		btnAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			AboutPage about = new AboutPage();
+			about.aboutFrame.setVisible(true);
+				
+			}
+		});
+		btnAbout.setBounds(365, 11, 46, 25);
+		frame.getContentPane().add(btnAbout);
 		
 	}
 }

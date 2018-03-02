@@ -47,7 +47,7 @@ public class About {
 	 * shows the current version
 	 * @return version
 	 */
-	String displayVersion(){
+	public String displayVersion(){
 		return version;
 	}
 	
@@ -55,7 +55,7 @@ public class About {
 	 * shows the date of last update
 	 * @return date
 	 */
-	String displayDate() {
+	public String displayDate() {
 		return date;
 	}
 	
@@ -63,7 +63,7 @@ public class About {
 	 * display name of dev1
 	 * @return name1
 	 */
-	String displayName1(){
+	public String displayName1(){
 		return name1;
 	}
 	
@@ -71,7 +71,7 @@ public class About {
 	 * name of dev2
 	 * @return name2
 	 */
-	String displayName2(){
+	public String displayName2(){
 		return name2;
 	}
 	
@@ -79,7 +79,7 @@ public class About {
 	 * name of dev3
 	 * @return name3
 	 */
-	String displayName3(){
+	public String displayName3(){
 		return name3;
 	}
 	
@@ -87,7 +87,7 @@ public class About {
 	 * name of dev4
 	 * @return name4
 	 */
-	String displayName4(){
+	public String displayName4(){
 		return name4;
 	}
 	
@@ -95,7 +95,7 @@ public class About {
 	 * Display website
 	 * @return website
 	 */
-	String displayWebsite() {
+	public String displayWebsite() {
 		return website;
 	}
 	

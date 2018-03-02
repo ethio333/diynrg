@@ -1,7 +1,9 @@
-
-package gui;
-
-
+/**
+ * Starting class, user chooses prefered home improvement
+ * 
+ * @author Fasil Ayenew
+ */
+//package gui;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -10,16 +12,18 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import backend.LED;
+import backend.About;
 import backend.CFL;
 import backend.Halogen;
-
-
 public class StartPage {
 
 	JFrame frame;
+	JFrame aboutFrame;
 	int option;
+	int backOption;
 
 	/**
 	 * Create the application.
@@ -77,7 +81,7 @@ public class StartPage {
 				if (rdbtnNewRadioButton.isSelected()){
 					OptionPage nxt = new OptionPage(1);
 					frame.setVisible(false);
-					
+					backOption = 1;
 					
 					nxt.frame.setVisible(true);
 					
@@ -85,14 +89,14 @@ public class StartPage {
 				if (rdbtnNewRadioButton_1.isSelected()){
 					OptionPage nxt = new OptionPage(2);
 					frame.setVisible(false);
-					
+					backOption = 2;
 					
 					nxt.frame.setVisible(true);
 				}
 				if (rdbtnNewRadioButton_2.isSelected()){
 					OptionPage nxt = new OptionPage(3);
 					frame.setVisible(false);
-					
+					backOption = 3;
 					
 					nxt.frame.setVisible(true);
 				}
@@ -108,6 +112,32 @@ public class StartPage {
 		JButton btnSavedProjects = new JButton("Saved Projects");
 		btnSavedProjects.setBounds(166, 364, 125, 23);
 		frame.getContentPane().add(btnSavedProjects);
+		
+		//ImageIcon icon = new ImageIcon("diynrg.png");
+		JButton btnHome = new JButton("Home");
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				intro back =  new intro();
+				frame.setVisible(false);
+				back.frame.setVisible(true);
+				
+			}
+		});
+		btnHome.setBounds(166, 452, 89, 23);
+		frame.getContentPane().add(btnHome);
+		
+		JButton btnAbout = new JButton("?"); //about
+		btnAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AboutPage about = new AboutPage();
+				about.aboutFrame.setVisible(true);
+				
+				
+			}
+		});
+		btnAbout.setBounds(365, 11, 46, 25);
+		frame.getContentPane().add(btnAbout);
 		
 	}
 }
