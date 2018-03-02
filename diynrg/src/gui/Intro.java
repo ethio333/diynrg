@@ -1,5 +1,8 @@
-
-package gui;
+/**
+ * Introduction class for ui
+ * 
+ * @author Fasil Ayenew
+ */
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -14,11 +17,12 @@ import javax.swing.JButton;
 import javax.swing.JMenuBar;
 import java.awt.BorderLayout;
 
-public class Intro {
+public class intro {
 	
 
 	JFrame frame;
 	ImageIcon img;
+	ImageIcon img2;
 	JLabel imgput;
 
 	/**
@@ -28,7 +32,7 @@ public class Intro {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Intro window = new Intro();
+					intro window = new intro();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +41,10 @@ public class Intro {
 		});
 	}
 
-	public Intro() {
+	/**
+	 * Create the application.
+	 */
+	public intro() {
 		initialize();
 	}
 
@@ -49,33 +56,26 @@ public class Intro {
 		frame.setBounds(100, 100, 450, 549);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		
-		
-		JLabel lblNewLabel_1 = new JLabel("Created by: FKMD");
-		frame.getContentPane().add(lblNewLabel_1, BorderLayout.SOUTH);
-		
-		JButton btnStart = new JButton("Click here to begin");
-		frame.getContentPane().add(btnStart, BorderLayout.CENTER);
-		
-		btnStart.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				frame.setVisible(false);
-				StartPage nxt = new StartPage();
-				nxt.frame.setVisible(true);
-				
-				
-				
-			}
-		});
-		
 		img = new ImageIcon(getClass().getResource("diynrg.png"));
 		JLabel lblNewLabel = new JLabel(img);
 		frame.getContentPane().add(lblNewLabel, BorderLayout.NORTH);
 		
+		img2 = new ImageIcon(getClass().getResource("fkmdmotto.png"));
+		JLabel lblNewLabel2 = new JLabel(img2);
+		frame.getContentPane().add(lblNewLabel2, BorderLayout.CENTER);
 		
-	
-			
+		JButton btnNewButton = new JButton("Start");
+		frame.getContentPane().add(btnNewButton, BorderLayout.SOUTH);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				StartPage nxt = new StartPage();
+				frame.setVisible(false);
+				nxt.frame.setVisible(true);
+				
+				
+			}
+		});
 		
 		
 	}
