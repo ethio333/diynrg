@@ -69,7 +69,7 @@ public class CFL extends Bulb {
 	 * The total Energy Consumption per hour for a chosen number of 
 	 * the CFL type of items.
 	 * 
-	 * @return energy consumption * quantity.
+	 * @return the number of watts lol
 	 */
 	@Override
 	public float getEnergyConsumptionForQuantity() {
