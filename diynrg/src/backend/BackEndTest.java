@@ -7,7 +7,7 @@ package backend;
  */
 public class BackEndTest {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		   
 	      ProjectBuilder projectBuilder = new ProjectBuilder();
 
@@ -21,4 +21,5 @@ public class BackEndTest {
 	      
 	      System.out.println("Total Project Cost: " + testProject.getTotalCost());
 	   }
+	   */
 }

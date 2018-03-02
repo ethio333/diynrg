@@ -15,7 +15,6 @@ public class Project {
 	 * The project name.
 	 */
 	private String myProjectName;
-	
 	/**
 	 * The project creation date.
 	 */
