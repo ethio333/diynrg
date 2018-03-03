@@ -3,7 +3,7 @@
  * 
  * @author Fasil Ayenew
  */
-
+package gui;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -187,7 +187,7 @@ public class OptionPage {
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				intro back =  new intro();
+				Intro back =  new Intro();
 				frame.setVisible(false);
 				back.frame.setVisible(true);
 				

@@ -3,7 +3,7 @@
  * 
  * @author Fasil Ayenew
  */
-//package gui;
+package gui;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;

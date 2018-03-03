@@ -25,9 +25,8 @@ public abstract class Bulb implements AbstractItem {
 	 */
 	public Bulb(int theQuantity, int theArea) {
 		super();
-		
-		myQuantity = theQuantity;
-		myArea = theArea;
+		setQuantity(theQuantity); // KN 
+		setArea(theArea);
 	}
 		
 	/**
@@ -37,7 +36,10 @@ public abstract class Bulb implements AbstractItem {
 	 */
 	@Override
 	public void setQuantity(int theQuantity) {
-		myQuantity = theQuantity;
+		if (isValid(theQuantity)) { // KN
+			myQuantity = theQuantity;
+		}
+		
 	}
 	
 	/**
@@ -47,7 +49,9 @@ public abstract class Bulb implements AbstractItem {
 	 */
 	@Override
 	public void setArea(int theArea) {
-		myArea = theArea;
+		if (isValid(theArea)) { // KN
+			myArea = theArea;
+		}
 	}
 	
 	/**
@@ -68,5 +72,20 @@ public abstract class Bulb implements AbstractItem {
 	@Override
 	public int getArea() {
 		return myArea;
+	}
+	
+	
+	/**
+	 * Kevin Nguyen
+	 * 
+	 * @param theNumber
+	 * @return true if theNumber is positive
+	 * @throws IllegalArgumentException otherwise 
+	 */
+	private boolean isValid(int theNumber) {
+		if (theNumber < 0) {
+			throw new IllegalArgumentException("Input numbers must be positive.");
+		}
+		return true; 
 	}
 }
