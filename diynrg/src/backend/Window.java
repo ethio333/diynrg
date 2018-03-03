@@ -1,7 +1,7 @@
 package backend;
 /**
  * An abstract class for the Insulation type items.
- * 
+ * data collected from https://www.energyguide.com/info/window2.asp
  * @author mike briden
  */
 public abstract class Window implements AbstractItem {
@@ -15,6 +15,12 @@ public abstract class Window implements AbstractItem {
 	 * Default area. 
 	 */
 	private int myArea = 0;
+	
+	/**
+	 * @author mike briden 3/2/2018
+	 * Energy consumption/loss for single pain windo1
+	 */
+	private final float SINGLER = (float) 0.9;
 	
 	/**
 	 * An Window abstract class constructor.
@@ -69,5 +75,13 @@ public abstract class Window implements AbstractItem {
 		return myArea;
 	}
 
+	/**
+	 * show worst R value
+	 * 
+	 * @return the R value used as the standard for our insulation
+	 */
+	public float worstRValue() {
+		return SINGLER; 
+	}
 
 }

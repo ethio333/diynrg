@@ -17,6 +17,17 @@ public class Glazed extends Window {
 	private int myEnergyConsumption = 0;
 	
 	/**
+	 * R value for a double pane glazed window, equals 1/UFACTOR
+	 * 
+	 */
+	 private final float GlazedR = (float) (1.0 / 0.81);
+	
+	 /**
+	  * day degree days
+	  */
+	 private final float DDH = (float) 4697.0;
+	
+	/**
 	 * Constructor for Thermal Class
 	 * @param theQuantity
 	 * @param theArea
@@ -48,10 +59,43 @@ public class Glazed extends Window {
 	/**
 	 * Access to the Energy Consumption of the window type.
 	 * 
-	 * @return Energy Consumption of the Thermal window insulation.
+	 * @return Energy Consumption/loss of the Glazed window per hour.
 	 */
 	public float getGlazedenergyConsumption() {
-		return myEnergyConsumption;
+		int heatingValueElec = 3412;   // BTU per KW for a 100% efficient electric heater
+		float energy = 0;
+		
+		//BTUs lost per year
+		energy = (float) ((float) getArea() * DDH * 24 / GlazedR);
+		
+		//energy lost per year with heating value of 100% electric heater
+		energy = (float) (energy/(heatingValueElec *1));
+
+		//convert to energy kW lost per hour
+		energy = energy/(365*24) *1000;
+		
+		return energy;
+	}
+	
+	/**
+	 * Access to the Energy Consumption for worst window type single pane.
+	 * 
+	 * @return Energy Consumption/loss of single pane window per hour.
+	 */
+	public float getWorstedEnergyConsumption() {
+		int heatingValueElec = 3412;   // BTU per KW for 100% 
+		float energy = 0;
+		
+		//BTUs lost per year
+		energy = (float) ((getArea() * DDH * 24.0) / worstRValue() );
+		
+		//energy lost per year with heating value of 100% electric heater
+		energy = (float) (energy/(heatingValueElec *1) );
+		
+		//convert to energy kW lost per hour
+		energy = (float) (energy/(365*24)) * 1000;
+		
+		return energy;
 	}
 	
 	/**
@@ -66,14 +110,22 @@ public class Glazed extends Window {
 	}
 
 	/**
-	 * The total Energy Consumption per hour for a chosen number of 
-	 * the thermal window type of items.
+	 * The total Energy Consumption per day for 24 hours per day for a chosen number of 
+	 * the glazed window type of items.
 	 * 
 	 * @return energy consumption * quantity.
 	 */
 	@Override
 	public float getEnergyConsumptionForQuantity() {
-		return getGlazedenergyConsumption() * getQuantity();
+		return 24 * getGlazedenergyConsumption() * getQuantity();
 	}
 
+	/**
+	 * @author mike briden 3/2/18
+	 * get the Energy Consumption/loss per day per for 24 of use for a chosen number of single pane windows
+	 * @return
+	 */
+	public float getBaseEnergyConsumptionForQuantity() {
+		return  24 * getWorstedEnergyConsumption() * getQuantity();
+	}
 }

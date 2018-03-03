@@ -66,13 +66,24 @@ public class Halogen extends Bulb {
 	}
 	
 	/**
-	 * The total Energy Consumption per hour for a chosen number of 
+	 * @author mike briden 3/2/18
+	 * The total Energy Consumption per day for 12 hours a day for a chosen number of 
 	 * the Halogen type of items.
 	 * 
 	 * @return energy consumption * quantity.
 	 */
 	@Override
 	public float getEnergyConsumptionForQuantity() {
-		return getHalogenEnergyConsumption() * getQuantity();
+		return 12* getHalogenEnergyConsumption() * getQuantity();
+	}
+	
+	/**
+	 * @author mike briden 3/2/18
+	 * get the Energy Consumption per day for 12 hours a day for a chosen number of 
+	 * incandescent bulbs
+	 * @return
+	 */
+	public float getBaseEnergyConsumptionForQuantity() {
+		return 12 * worstEnergy() * getQuantity();
 	}
 }
