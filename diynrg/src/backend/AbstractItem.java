@@ -56,4 +56,10 @@ public interface AbstractItem {
 	 */
 	public float getEnergyConsumptionForQuantity();
 	
+	/**
+	 * @author mike briden 3/2/18
+	 * get the Energy Consumption per hour for a chosen number of incandescent bulbs
+	 * @return
+	 */
+	public float getBaseEnergyConsumptionForQuantity();
 }

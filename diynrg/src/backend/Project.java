@@ -21,6 +21,12 @@ public class Project {
 	private Date myProjectDate = new Date();
 	
 	/**
+	 * @author mike briden
+	 * price for electricity $0.0853/kWh
+	 */
+	private final double RATE = .0853; 
+	
+	/**
 	 * A list to store items.
 	 */
 	private List<AbstractItem> myItems = new ArrayList<AbstractItem>();;
@@ -78,21 +84,55 @@ public class Project {
 	}
 	
 	/**
+	 * @author mike briden
+	 * Calculates the savings for a given item
+	 * @return saved per year for a given DIYproject
+	 */
+	public double EnergySavedPerItem(AbstractItem item) {
+		double saving = 0;
+		saving = item.getBaseEnergyConsumptionForQuantity() - 
+					item.getEnergyConsumptionForQuantity();
+		return saving;
+	}
+	
+	/**
+	 * @author mike briden 3/2/2018
+	 * Calculates the savings per year for a given DIYproject.
+	 * assumes 12hrs use per day.
+	 * 
+	 * @return saved per year for a given DIYproject
+	 */
+	public double EnergySavedPerYear() {
+		double saving = 0;
+		int count = 0;
+		for (AbstractItem item : myItems) {
+			System.out.println(count);
+			saving += 365*EnergySavedPerItem(item);
+			count++;
+		}	
+		//return savings
+		return saving;
+	}
+	
+	
+	
+	/**
 	 * NEED a formula (Implemented User Story #2)
 	 * 
 	 * @return saved per year for a given DIYproject
 	 */
 	public double savingPerYearForGivenDIYproject() {
-		return 0.0;
+		double saving = 0;
+		return EnergySavedPerYear() / 1000 * RATE;
 	}
 	
 	/**
 	 * NEED a formula (Implemented User Story #3)
 	 * 
-	 * @return estimated time for how long it will cost to “break even”
+	 * @return estimated time for how long it will cost to ï¿½break evenï¿½ in years
 	 */
-	public int estimationBreakEvenTime() {
-		return 0;
+	public double estimationBreakEvenTime() {
+		return getTotalCost() / savingPerYearForGivenDIYproject();
 	}		
 
 	/**

@@ -6,6 +6,7 @@ package backend;
  *
  */
 public class Thermal extends Window {
+	
 	/**
 	 * Cost for Thermal insulation per square foot.
 	 */
@@ -15,6 +16,17 @@ public class Thermal extends Window {
 	 * Insulation energy consumption is 0 for insulation.
 	 */
 	private int myEnergyConsumption = 0;
+	
+	/**
+	 * R value for a double pane thermal window, equals 1/UFACTOR
+	 * 
+	 */
+	 private final float ThermalR = (float) (1.0 / 0.7);
+	 
+	 /**
+	  * day degree days
+	  */
+	 private final float DDH = (float) 4697.0;
 	
 	/**
 	 * Constructor for Thermal Class
@@ -33,7 +45,7 @@ public class Thermal extends Window {
 	@Override
 	public String name() {
 		// TODO Auto-generated method stub
-		return "Thermal";
+		return "Thermal windows";
 	}
 
 	/**
@@ -46,15 +58,6 @@ public class Thermal extends Window {
 	}
 	
 	/**
-	 * Access to the Energy Consumption of the window type.
-	 * 
-	 * @return Energy Consumption of the Thermal window insulation.
-	 */
-	public float getThermalenergyConsumption() {
-		return myEnergyConsumption;
-	}
-	
-	/**
 	 * The total price for a chosen number of 
 	 * rooms for a given Area type of items.
 	 * quantity is set to one.
@@ -63,7 +66,51 @@ public class Thermal extends Window {
 	@Override
 	public float getPriceForQuantity() {
 		return getThermalcost() * getQuantity();
+	} 
+	
+	/**
+	 * Access to the Energy Consumption of the window type.
+	 * 
+	 * @return Energy Consumption/loss of the Thermal window per hour.
+	 */
+	public float getThermalenergyConsumption() {
+		int heatingValueElec = 3412;   // BTU per KW for a 100% efficient electric heater
+		float energy = 0;
+		
+		//BTUs lost per year
+		energy = (float) ((float) getArea() * DDH * 24 / ThermalR);
+		
+		//energy lost per year with heating value of 100% electric heater
+		energy = (float) (energy/(heatingValueElec *1));
+
+		// convert to kW lost per hour
+		energy = energy/(365*24) *1000;
+		
+		return energy;
 	}
+	
+	
+	/**
+	 * Access to the Energy Consumption for worst window type single pane.
+	 * 
+	 * @return Energy Consumption/loss a single pane window per hour.
+	 */
+	public float getWorstedEnergyConsumption() {
+		int heatingValueElec = 3412;   // BTU per KW for 100% 
+		float energy = 0;
+		
+		//BTUs lost per year
+		energy = (float) ((getArea() * DDH * 24.0) / worstRValue() );
+		
+		//energy lost per year with heating value of 100% electric heater
+		energy = (float) (energy/(heatingValueElec *1) );
+		
+		//convert to energy kW lost per hour
+		energy = (float) (energy/(365*24)) * 1000;
+		
+		return energy;
+	}
+	
 
 	/**
 	 * The total Energy Consumption per hour for a chosen number of 
@@ -73,7 +120,16 @@ public class Thermal extends Window {
 	 */
 	@Override
 	public float getEnergyConsumptionForQuantity() {
-		return getThermalenergyConsumption() * getQuantity();
+		return 24 * getThermalenergyConsumption() * getQuantity();
+	}
+	
+	/**
+	 * @author mike briden 3/2/18
+	 * get the Energy Consumption per day per for 24 of single pane windows of size myArea
+	 * @return
+	 */
+	public float getBaseEnergyConsumptionForQuantity() {
+		return  24 * getWorstedEnergyConsumption() * getQuantity();
 	}
 
 }

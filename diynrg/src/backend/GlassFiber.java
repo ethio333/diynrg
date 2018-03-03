@@ -18,6 +18,18 @@ public class GlassFiber extends Insulation {
 	private int myEnergyConsumption = 0;
 	
 	/**
+	 * R value for our updated insulation
+	 * 
+	 */
+	 private final float GLASSR = (float) 19.0;
+	 
+	 /**
+	  * day degree days
+	  */
+	 private final float DDH = (float) 4697.0;
+	 
+	 
+	/**
 	 * 
 	 * @param theArea
 	 */
@@ -49,8 +61,50 @@ public class GlassFiber extends Insulation {
 	 * 
 	 * @return Energy Consumption of the glass fiber insulation.
 	 */
-	public float getGlassFiberEnergyConsumption() {
+	public float getGlassFiberEnergyLoss() {
 		return myEnergyConsumption;
+	}
+	
+	/**
+	 * Access to the Energy Consumption of the Insulation type.
+	 * 
+	 * @return Energy Consumption of the glass fiber insulation.
+	 */
+	public float getGlassFiberEnergyConsumption() {
+		int heatingValueElec = 3412;   // BTU per KW
+		float energy = 0;
+		
+		//savings per year
+		energy = (float) ((float) getArea() * DDH * 24.0 / GLASSR);
+		
+		//energy lost per year with heating value of 100% electric heater
+		energy = (float) (energy/(heatingValueElec *1));
+		
+		//convert to energy kW lost per hour
+		energy = energy/(365*24) *1000;
+	
+		return energy;
+	}
+	
+	/**
+	 * Access to the Energy Consumption of the Insulation type.
+	 * 
+	 * @return Energy Consumption of the glass fiber insulation R13.
+	 */
+	public float getWorstedEnergyConsumption() {
+		int heatingValueElec = 3412;   // BTU per KW
+		float energy = 0;
+		
+		//BTUs lost per year
+		energy = (float) ((getArea() * DDH * 24.0) / worstRValue() );
+		
+		//energy lost per year with heating value of 100% electric heater
+		energy = (float) (energy/(heatingValueElec *1) );
+		
+		//convert to energy kW lost per hour
+		energy = (float) (energy/(365*24)) * 1000;
+		
+		return energy;
 	}
 	
 	/**
@@ -65,13 +119,23 @@ public class GlassFiber extends Insulation {
 	}
 
 	/**
-	 * The total Energy Consumption per hour for a chosen number of 
+	 * The total Energy Consumption per day for a chosen number of 
 	 * the glass fiber type of items.
 	 * 
 	 * @return energy consumption * quantity.
 	 */
 	@Override
 	public float getEnergyConsumptionForQuantity() {
-		return getGlassFiberEnergyConsumption();
+		return 24 * getGlassFiberEnergyConsumption() * getQuantity();
+	}
+	
+	/**
+	 * @author mike briden 3/2/18
+	 * get the Energy Consumption/loss per day for a chosen number of R13 insulation
+	 * @return
+	 */
+	public float getBaseEnergyConsumptionForQuantity() {
+		return 24 * getWorstedEnergyConsumption() * getQuantity();
+		
 	}
 }
