@@ -31,8 +31,9 @@ public abstract class Bulb implements AbstractItem {
 	 */
 	public Bulb(int theQuantity, int theArea) {
 		super();
-		setQuantity(theQuantity); // KN 
-		setArea(theArea);
+		
+		myQuantity = theQuantity;
+		myArea = theArea;
 	}
 		
 	/**
@@ -42,10 +43,7 @@ public abstract class Bulb implements AbstractItem {
 	 */
 	@Override
 	public void setQuantity(int theQuantity) {
-		if (isValid(theQuantity)) { // KN
-			myQuantity = theQuantity;
-		}
-		
+		myQuantity = theQuantity;
 	}
 	
 	/**
@@ -55,9 +53,7 @@ public abstract class Bulb implements AbstractItem {
 	 */
 	@Override
 	public void setArea(int theArea) {
-		if (isValid(theArea)) { // KN
-			myArea = theArea;
-		}
+		myArea = theArea;
 	}
 	
 	/**
@@ -79,13 +75,12 @@ public abstract class Bulb implements AbstractItem {
 	public int getArea() {
 		return myArea;
 	}
-
+	
 	/**
 	 * @author mike briden 3/2/2018
 	 * Get worst energy consumption for bulb types
 	 */
 	public int worstEnergy() {
 		return incandescent;
->>>>>>> upstream/master
 	}
 }
