@@ -22,6 +22,9 @@ public abstract class Insulation implements AbstractItem {
 	 */
 	public Insulation(int theQuantity, int theArea){
 		super();
+		if (theQuantity < 0 || theArea < 0) { // Kevin Nguyen
+			throw new IllegalArgumentException("Negative inputs don't make sense?"); 
+		}
 		myQuantity = theQuantity;
 		myArea = theArea;
 	}
