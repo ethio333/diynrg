@@ -18,6 +18,12 @@ public abstract class Bulb implements AbstractItem {
 	private int myArea = 0;
 	
 	/**
+	 * @author mike briden 3/2/2018
+	 * Energy consumption for a incandescent bulb worst energy consumption
+	 */
+	private final int incandescent = 60;
+	
+	/**
 	 * An Bulb abstract class constructor.
 	 * 
 	 * @param theQuantity - a number of bulbs to replace
@@ -73,19 +79,13 @@ public abstract class Bulb implements AbstractItem {
 	public int getArea() {
 		return myArea;
 	}
-	
-	
+
 	/**
-	 * Kevin Nguyen
-	 * 
-	 * @param theNumber
-	 * @return true if theNumber is positive
-	 * @throws IllegalArgumentException otherwise 
+	 * @author mike briden 3/2/2018
+	 * Get worst energy consumption for bulb types
 	 */
-	private boolean isValid(int theNumber) {
-		if (theNumber < 0) {
-			throw new IllegalArgumentException("Input numbers must be positive.");
-		}
-		return true; 
+	public int worstEnergy() {
+		return incandescent;
+>>>>>>> upstream/master
 	}
 }

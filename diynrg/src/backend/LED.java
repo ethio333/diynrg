@@ -66,13 +66,23 @@ public class LED extends Bulb {
 	}
 	
 	/**
-	 * The total Energy Consumption per hour for a chosen number of 
+	 * The total Energy Consumption per day for 12 hours a day for a chosen number of 
 	 * the LED type of items.
 	 * 
 	 * @return energy consumption * quantity.
 	 */
 	@Override
 	public float getEnergyConsumptionForQuantity() {
-		return getLEDenergyConsumption() * getQuantity();
+		return 12 * getLEDenergyConsumption() * getQuantity();
+	}
+	
+	/**
+	 * @author mike briden 3/2/18
+	 * get the Energy Consumption per day for 12 hours a day for a chosen number 
+	 * of incandescent bulbs
+	 * @return
+	 */
+	public float getBaseEnergyConsumptionForQuantity() {
+		return 12 * worstEnergy() * getQuantity();
 	}
 }

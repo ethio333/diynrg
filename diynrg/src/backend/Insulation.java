@@ -7,6 +7,12 @@ package backend;
 public abstract class Insulation implements AbstractItem {
 	private int myQuantity = 0; // quantity of items
 	private int myArea = 0; // area of room
+	private final float daydegheat = (float) 4697.0; // annual average heating days for seattle/tacoma
+	/**
+	 * @author mike briden 3/2/2018
+	 * Energy consumption for R-13 insulation
+	 */
+	private final float r13Insulation = (float) 13.0;
 	
 	/**
 	 * An Insulation abstract class constructor.
@@ -61,5 +67,22 @@ public abstract class Insulation implements AbstractItem {
 		return myArea;
 	}
 
+	/**
+	 * show the DDH value for seattle/tacoma
+	 * 
+	 * @return DDH annual average
+	 */
+	public float heatDays(){
+		return daydegheat;
+	}
+	
+	/**
+	 * show worst R value
+	 * 
+	 * @return the R value used as the standard for our insulation
+	 */
+	public float worstRValue() {
+		return r13Insulation; 
+	}
 
 }
