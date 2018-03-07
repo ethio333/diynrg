@@ -773,8 +773,10 @@ public class Intro {
 			frame = new JFrame();
 			frame.setBounds(100, 100, 450, 549);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setVisible (true);
 			textArea = new JTextArea ();
-			textArea.setText("total cost is : $" + String.valueOf(myNewList.getTotalCost()));
+			//textArea.setText();
+			textArea.setText(myNewList.showItems() + "total cost is : $" + String.valueOf(myNewList.getTotalCost()));
 			//textArea.setText(String.valueOf(myNewList.showItems()));
 			textArea.setEditable(false);
 			
@@ -783,9 +785,9 @@ public class Intro {
 			   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
 			frame.add(scroll);
-			frame.setVisible (true);
 			
-			myNewList.showItems();
+			
+			
 			//System.out.println("total cost is : $");
 			//System.out.print(myNewList.getTotalCost());
 			
