@@ -27,10 +27,13 @@ public abstract class Window implements AbstractItem {
 	 * 
 	 * @param theQuantity - a number of bulbs to replace
 	 * @param theArea - an area for window/insulation replacement
+	 * @throws illegal argument exception if paramters are negative
 	 */
 	public Window(int theQuantity, int theArea) {
 		super();
-		
+		if (theQuantity < 0 || theArea < 0) { // Kevin Nguyen
+			throw new IllegalArgumentException(); 
+		}
 		myQuantity = theQuantity;
 		myArea = theArea;
 	}
