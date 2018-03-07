@@ -31,7 +31,9 @@ public abstract class Bulb implements AbstractItem {
 	 */
 	public Bulb(int theQuantity, int theArea) {
 		super();
-		
+		if (theQuantity < 0 || theArea < 0) { /* Kevin Nguyen */ 
+			throw new IllegalArgumentException(); 
+		}
 		myQuantity = theQuantity;
 		myArea = theArea;
 	}
