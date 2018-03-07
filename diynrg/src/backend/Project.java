@@ -122,7 +122,6 @@ public class Project {
 	 * @return saved per year for a given DIYproject
 	 */
 	public double savingPerYearForGivenDIYproject() {
-		double saving = 0;
 		return EnergySavedPerYear() / 1000 * RATE;
 	}
 	
@@ -138,13 +137,29 @@ public class Project {
 	/**
 	 * A method to test in text mode
 	 */
-	public void showItems() {
+	public String showItems() {
+		System.out.println(myItems.size());
+			StringBuilder s1 = new StringBuilder();
+		//	s1.append("My name is ");
+		//	s1.append(name + " ");
+			//s1.append("and I am ");
+			//s1.append(age + " years old.");
 		for (AbstractItem item : myItems) {
-			System.out.print("Item : " + item.name());
-			System.out.print(", Quantity : " + item.getQuantity());
-			System.out.print(", Area : " + item.getArea());
-			System.out.println(", Price for Item set : " 
-										+ item.getPriceForQuantity());
+			s1.append("Item : ");
+			s1.append(item.name());
+			s1.append(", Quantity : " + item.getQuantity());
+			s1.append(", Area : ");
+			s1.append( item.getArea());
+			s1.append(", Price for Item set : "); 
+			s1.append(item.getPriceForQuantity());
+			s1.append("\n");
+					//+ item.getPriceForQuantity())
+		//	System.out.print("Item : " + item.name());
+		//	System.out.print(", Quantity : " + item.getQuantity());
+		//	System.out.print(", Area : " + item.getArea());
+		//	System.out.println(", Price for Item set : " 
+		//								+ item.getPriceForQuantity());*/
 		}
+		return s1.toString();
 	}
 }
