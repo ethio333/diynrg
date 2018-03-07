@@ -779,7 +779,7 @@ public class Intro {
 			textArea.setText(myNewList.showItems() + "total cost is : $" + String.valueOf(myNewList.getTotalCost()));
 			//textArea.setText(String.valueOf(myNewList.showItems()));
 			textArea.setEditable(false);
-			
+			//gittestudsfhdiofgfdoighod
 
 			JScrollPane scroll = new JScrollPane (textArea, 
 			   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
